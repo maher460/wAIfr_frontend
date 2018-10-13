@@ -2,7 +2,7 @@ html, body {
       height:100%;
     }
     body {
-      background-color: #2E5090;
+      background-color: #FFC63E;
       /*display:flex;*/
       /*align-items:center;*/
     }
@@ -32,7 +32,7 @@ html, body {
         display: block;
         flex: 0 1 auto; /* Default */
         list-style-type: none;
-        background: #fafafa;
+        background: #f8f9fa;
     }
 
     .row{
@@ -64,4 +64,12 @@ html, body {
 
     .list-inline-item.active {
       background-color: #dddfe2;
+    }
+
+    .bg-light {
+      background-color: #f8f9fa;
+    }
+
+    a {
+      color: #7A1502;
     }
