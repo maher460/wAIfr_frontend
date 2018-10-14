@@ -57,13 +57,18 @@ $( document ).ready(function() {
 				  ['Cairo', "img/cities/cairo - Edited.jpg"],
 				  ['Cancun', "img/cities/cancun - Edited.jpg"],
 				  ['Guatemalacity', "img/cities/guatemalacity - Edited.jpg"],
-				  ['Hong Kong', "img/cities/hongkong - Edited.jpg"]]
+				  ['Johannesburg', "img/cities/johannesburg - Edited.jpg"],
+				  ['Kansas City', "img/cities/kansascity - Edited.jpg"],
+				  ['Lagos', "img/cities/lagos - Edited.jpg"],
+				  ['Lima', "img/cities/lima - Edited.jpg"],
+				  ['London', "img/cities/london - Edited.jpg"],
+				  ['Los Angeles', "img/cities/losangeles - Edited.jpg"],]
 
 
     var people_info = [["Watson", "img/watson2_pro_pic.png"],
-    				   ["Dan", "img/dan_pro_pic.jpg"],
-    				   ["Maher", "img/maher_pro_pic.jpg"],
     				   ["Logan", "img/logan_pro_pic.jpg"],
+    				   ["Maher", "img/maher_pro_pic.jpg"],
+    				   ["Dan", "img/dan_pro_pic.jpg"],
     				   ["Matei", "img/matei_pro_pic.jpg"]]
 
     var telescript = [[WATSON, "Hi Logan, ready to start planning your next trip?", WAIT_FOR_ME_T, null],
@@ -76,7 +81,7 @@ $( document ).ready(function() {
     				  [FRIEND2, "I want to hike", WAIT_FOR_ME_T, null],
     				  [FRIEND3, "I want nature but still near a city", WAIT_FOR_ME_F, null],
     				  [FRIEND1, "I like fishing", WAIT_FOR_ME_F, null],
-    				  [WATSON, "Where are some of your geographic interests?", WAIT_FOR_ME_T, show_interests],
+    				  [WATSON, "Where are some of your geographic interests?", WAIT_FOR_ME_T, show_cities],
     				  [FRIEND1, "I want to go out west", WAIT_FOR_ME_T, null],
     				  [FRIEND2, "I'd like to see Europe", WAIT_FOR_ME_F, null],
     				  [FRIEND3, "I don't want to travel far", WAIT_FOR_ME_F, null],
@@ -94,6 +99,10 @@ $( document ).ready(function() {
 
     var telescript_idx = 0;
     function run_telescript(){
+    	if(telescript_idx >= telescript.length){
+    		return;
+    	}
+    	
     	var tele_item = telescript[telescript_idx];
     	console.log(telescript_idx);
     	console.log(tele_item);
@@ -148,7 +157,7 @@ $( document ).ready(function() {
     	if(e.keyCode == 13){
     		var msg = $("#input_msg").val();
 	    	if(msg){
-	    		put_my_message("Maher", "img/maher_pro_pic.jpg", msg);
+	    		put_my_message(people_info[ME][0], people_info[ME][1], msg);
 	    		waiting_for_me = false;
 	    		$("#input_msg").val("");
 	    	}
@@ -318,11 +327,23 @@ $( document ).ready(function() {
     	return "";
     }
 
+	function get_random_indices(length){
+		console.log(length);
+		var arr = []
+		while(arr.length < 5){
+		    var randomnumber = Math.floor(Math.random()*(length-1));
+		    if(arr.indexOf(randomnumber) > -1 && randomnumber < 0) continue;
+		    arr[arr.length] = randomnumber;
+		}
+		return arr;
+	}
 
     function show_cities(){
+    	var indices = get_random_indices(cities.length);
     	var ls_eles = []
-    	for(var i=0; i<activities.length; i++){
-    		ls_eles.push(make_live_scroll_ele(cities[i][0], cities[i][1]));
+    	for(var i=0; i<indices.length; i++){
+    		var idx = indices[i];
+    		ls_eles.push(make_live_scroll_ele(cities[idx][0], cities[idx][1]));
     	}
     	var made_live_scroll = make_live_scroll(ls_eles);
     	return made_live_scroll;
