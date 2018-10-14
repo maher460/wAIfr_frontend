@@ -14,17 +14,27 @@ $( document ).ready(function() {
     var waiting_for_me = false;
     var waiting_for_ajax = false;
     var people_info = [["Watson", "img/watson2_pro_pic.png"],
-    				   ["Maher", "img/maher_pro_pic.jpg"],
     				   ["Dan", "img/dan_pro_pic.jpg"],
+    				   ["Maher", "img/maher_pro_pic.jpg"],
     				   ["Logan", "img/logan_pro_pic.jpg"],
     				   ["Matei", "img/matei_pro_pic.jpg"]]
-    var telescript = [[WATSON, "Hi, how are you today?", WAIT_FOR_ME_T, null],
-    				  [WATSON, "So, tell me some of your travel interests.", WAIT_FOR_ME_T, show_interests],
+    var telescript = [[WATSON, "Hi Dan, ready to start planning your next trip?", WAIT_FOR_ME_T, null],
     				  [WATSON, "How about we invite some of your other friends to plan a trip together?", WAIT_FOR_ME_T, null],
     				  [WATSON, "Cool, adding them up now!", WAIT_FOR_ME_T, invite_friends],
     				  [FRIEND1, "Heyy, what's poppinng, all? WATSONN!!!! You are so cool, man!", WAIT_FOR_ME_F, null],
     				  [FRIEND2, "LOL", WAIT_FOR_ME_F, null],
-    				  [FRIEND3, "Hi, all!", WAIT_FOR_ME_F, null]]
+    				  [FRIEND3, "Hi, all!", WAIT_FOR_ME_F, null],
+    				  [WATSON, "They're all here now! Tell me some of your travel interests.", WAIT_FOR_ME_F, show_interests],
+    				  [FRIEND2, "I want to hike", WAIT_FOR_ME_T, null],
+    				  [FRIEND3, "I want nature but still near a city", WAIT_FOR_ME_F, null],
+    				  [FRIEND1, "I like fishing", WAIT_FOR_ME_F, null],
+    				  [WATSON, "Where are some of your geographic interests?", WAIT_FOR_ME_T, show_interests],
+    				  [FRIEND1, "I want to go out west", WAIT_FOR_ME_T, null],
+    				  [FRIEND2, "I'd like to see Europe", WAIT_FOR_ME_T, null],
+    				  [FRIEND3, "I don't want to travel far", WAIT_FOR_ME_F, null]
+    				  ]
+    				  
+    				  
 
     console.log(telescript);
 
@@ -73,7 +83,7 @@ $( document ).ready(function() {
     submit_msg_btn.addEventListener('click', function(){
     	var msg = $("#input_msg").val();
     	if(msg){
-    		put_my_message("Maher", "img/maher_pro_pic.jpg", msg);
+    		put_my_message(people_info[ME][0], people_info[ME][1], msg);
     		waiting_for_me = false;
     	}
     	
