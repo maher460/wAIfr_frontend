@@ -40,6 +40,8 @@ html, body {
     }
 
     .live__scroll {
+      padding-top: 10px;
+      height: 200px;
       overflow-x: auto;
       overflow-y: hidden;
       white-space: nowrap;
@@ -51,10 +53,11 @@ html, body {
       display: inline-block;
       float: none;
       padding: 5px;
+      height: 10px;
       /*border: 1px solid red;*/
     }
     .item_box{
-      margin-bottom: 15px;
+      /*margin-bottom: 15px;*/
     }
 
     .list-group-item{
@@ -73,3 +76,71 @@ html, body {
     a {
       color: #7A1502;
     }
+
+    #chat_window{
+      margin-top: 10px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+
+    .card_msg{
+      padding-top: 0%;
+      padding-bottom: 0%;
+      margin-bottom: 3%;
+      margin-top: 3%;
+    }
+
+    .card_msg_friend{
+      width: 80%;
+      /*float:right;*/
+      /*margin-right: -10;*/
+    }
+
+    .card_body_msg{
+      /*padding-bottom: 2px;*/
+      /*padding-top: 2px;*/
+      padding: 2px;
+    }
+
+    .img-circle {
+    border-radius: 50%;
+/*    border-width: 2px;
+    border-color: white;
+    border-style: solid;*/
+}
+
+.card-pro-pic{
+  width: 100%;
+  /*margin-left: -30px;*/
+/*  width: 100px;
+  height: auto;*/
+}
+
+.img-thumbnail{
+  min-width: 50px;
+  max-width: 80px;
+}
+
+.left_zero_margin_padding{
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.right_zero_margin_padding{
+  margin-right: 0px;
+  padding-right: 0px;
+}
+.bottom_zero_margin_padding{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+#bot_box{
+  margin: 5px;
+  margin-top: 70px;
+  padding-bottom: 12px;
+}
+
+.chat_msg_name{
+  color: #7A1502;
+}

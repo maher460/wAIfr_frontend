@@ -31,84 +31,31 @@
           <a class="nav-link" href="#"><img src="img/wAIfr_black.png" height="35"></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="material-icons">chat</i></a>
+          <a class="nav-link" href="#"><i class="material-icons">menu</i></a>
         </li>
       </ul>
     </nav>
   
     <!-- Main container -->
     <div id="main_container" class="container">
-        <div id="chat-window">
-          <div class="card">
-            <div class="card-body">
-              <div class="chat-msg-friend">
-                <p>Hey how are you?</p>
+        <div id="chat_window">
+
+          <div class="row">
+            <div class="card card_msg card_msg_friend">
+              <div class="card-body card_body_msg">
+                  <div class="row">
+                      <div class="col-3 text-left left_zero_margin_padding">
+                        <img class="img-thumbnail img-fluid img-circle card-pro-pic" src="img/maher_pro_pic.jpg">
+                      </div>
+                      <div class="col-9 text-left left_zero_margin_padding">
+                        <p class="chat_msg_name bottom_zero_margin_padding">Maher:</p>
+                        <p>Hey how are you?</p>
+                      </div>
+                  </div>
               </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="chat-msg-me">
-            <p>I am doing great!</p>
-          </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="chat-msg-me">
-            <p>I am doing great!</p>
-          </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="chat-msg-me">
-            <p>I am doing great!</p>
-          </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="chat-msg-me">
-            <p>I am doing great!</p>
-          </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="chat-msg-me">
-            <p>I am doing great!</p>
-          </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="chat-msg-me">
-            <p>I am doing great!</p>
-          </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="chat-msg-me">
-            <p>I am doing great!</p>
-          </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="chat-msg-me">
-            <p>I am doing great!</p>
-          </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="chat-msg-me">
-            <p>I am doing great!</p>
-          </div>
-            </div>
-          </div>
+         </div>
+   
           
           
         </div>
@@ -119,7 +66,7 @@
     <!-- Bottom Navigation Bar -->
     <nav class="navbar navbar-expand navbar-light bg-light fixed-bottom justify-content-around">
       <ul class="nav">
-        <li class="nav-item">
+<!--         <li class="nav-item">
           <a class="nav-link" href="#"><i class="material-icons">home</i></a>
         </li>
         <li class="nav-item">
@@ -130,16 +77,25 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="material-icons">explore</i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="material-icons">store</i></a>
-        </li>
+        </li> -->
+        <!-- <li class="nav-item"> -->
+          <div class="input-group mb-3">
+            <input id="input_msg" type="text" class="form-control" placeholder="message..." aria-label="Recipient's username" aria-describedby="submit_msg_btn">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="submit_msg_btn">
+                <i class="material-icons">send</i>
+              </button>
+            </div>
+          </div>
+        <!-- </li> -->
       </ul>
     </nav>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="js/index.js"></script>
 
     <script>
     $(document).ready(function() { 
