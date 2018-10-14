@@ -4,16 +4,81 @@ $( document ).ready(function() {
 
     var submit_msg_btn = document.getElementById("submit_msg_btn");
 
+    var WATSON = 0;
+    var ME = 1;
+    var FRIEND1 = 2;
+    var FRIEND2 = 3;
+    var FRIEND3 = 4;
+    var WAIT_FOR_ME_T = true;
+    var WAIT_FOR_ME_F = false;
+    var waiting_for_me = false;
+    var waiting_for_ajax = false;
+    var people_info = [["Watson", "img/watson2_pro_pic.png"],
+    				   ["Maher", "img/maher_pro_pic.jpg"],
+    				   ["Dan", "img/dan_pro_pic.jpg"],
+    				   ["Logan", "img/logan_pro_pic.jpg"],
+    				   ["Matei", "img/matei_pro_pic.jpg"]]
+    var telescript = [[WATSON, "Hi, how are you today?", WAIT_FOR_ME_T, null],
+    				  [WATSON, "So, tell me some of your travel interests.", WAIT_FOR_ME_T, show_interests],
+    				  [WATSON, "How about we invite some of your other friends to plan a trip together?", WAIT_FOR_ME_T, null],
+    				  [WATSON, "Cool, adding them up now!", WAIT_FOR_ME_T, invite_friends],
+    				  [FRIEND1, "Heyy, what's poppinng, all? WATSONN!!!! You are so cool, man!", WAIT_FOR_ME_F, null],
+    				  [FRIEND2, "LOL", WAIT_FOR_ME_F, null],
+    				  [FRIEND3, "Hi, all!", WAIT_FOR_ME_F, null]]
+
+    console.log(telescript);
+
+    var telescript_idx = 0;
+    function run_telescript(){
+    	var tele_item = telescript[telescript_idx];
+    	console.log(telescript_idx);
+    	console.log(tele_item);
+    	console.log(telescript);
+
+	    	if((tele_item[2] === false) || (waiting_for_me === false)){
+	    		if(tele_item[0] === WATSON){
+	    			var u_name = people_info[WATSON][0];
+		    		var u_pic_path = people_info[WATSON][1];;
+	    			var extra_stuff = "";
+	    			if(tele_item[3] != null){
+	    				extra_stuff = tele_item[3]();
+	    			}
+	    			put_watson_message(u_name, u_pic_path, tele_item[1], extra_stuff);
+		    	}
+		    	else if(tele_item[0] === FRIEND1){
+		    		var u_name = people_info[FRIEND1][0];
+		    		var u_pic_path = people_info[FRIEND1][1];;
+		    		put_friend_message(u_name, u_pic_path, tele_item[1])
+		    	}
+		    	else if(tele_item[0] === FRIEND2){
+		    		var u_name = people_info[FRIEND2][0];
+		    		var u_pic_path = people_info[FRIEND2][1];;
+		    		put_friend_message(u_name, u_pic_path, tele_item[1])
+		    	}
+		    	else if(tele_item[0] === FRIEND3){
+		    		var u_name = people_info[FRIEND3][0];
+		    		var u_pic_path = people_info[FRIEND3][1];;
+		    		put_friend_message(u_name, u_pic_path, tele_item[1])
+		    	}
+
+		    	waiting_for_me = true;
+		    	telescript_idx++;
+	    	}
+    }
+
+    setTimeout(run_telescript, 1000);
+
+
+
     submit_msg_btn.addEventListener('click', function(){
     	var msg = $("#input_msg").val();
     	if(msg){
-    		put_my_message("Maher", "img/maher_pro_pic.jpg", msg)
+    		put_my_message("Maher", "img/maher_pro_pic.jpg", msg);
+    		waiting_for_me = false;
     	}
     	
-    	test1();
-    	put_friend_message("Logan", "img/maher_pro_pic.jpg", "What's popping?!");
-
-    	scrollToBottom();
+    	// test1();
+    	// put_friend_message("Logan", "img/maher_pro_pic.jpg", "What's popping?!");
     });
 
     // var chat_window = document.getElementById("chat-window");
@@ -35,6 +100,8 @@ $( document ).ready(function() {
 				            </div>\
 				         </div>'
 		$("#chat_window").append(msg_element);
+		scrollToBottom();
+		setTimeout(run_telescript, 1000);
     }
     
     function put_friend_message(u_name, u_pic_path, u_msg){
@@ -54,18 +121,20 @@ $( document ).ready(function() {
 				            </div>\
 				         </div>'
 		$("#chat_window").append(msg_element);
+		scrollToBottom();
+		setTimeout(run_telescript, 1000);
     }
 
-    function put_watson_message(u_msg, made_live_scroll){
+    function put_watson_message(u_name, u_pic_path, u_msg, made_live_scroll){
     	var msg_element = '<div class="row">\
 				            <div class="card card_msg card_msg_friend">\
 				              <div class="card-body card_body_msg">\
 				                  <div class="row">\
 				                      <div class="col-3 text-left left_zero_margin_padding">\
-				                        <img class="img-thumbnail img-fluid img-circle card-pro-pic" src="img/watson2_pro_pic.png">\
+				                        <img class="img-thumbnail img-fluid img-circle card-pro-pic" src="'+ u_pic_path +'">\
 				                      </div>\
 				                      <div class="col-9 text-left left_zero_margin_padding">\
-				                        <p class="chat_msg_name bottom_zero_margin_padding">Watson:</p>\
+				                        <p class="chat_msg_name bottom_zero_margin_padding">'+ u_name +':</p>\
 				                        <p>'+ u_msg +'</p>\
 				                      </div>\
 				                  </div>\
@@ -74,7 +143,8 @@ $( document ).ready(function() {
 				            </div>\
 				         </div>'
 		$("#chat_window").append(msg_element);
-
+		scrollToBottom();
+		setTimeout(run_telescript, 1000);
     }
 
     function make_live_scroll(ls_eles){
@@ -125,6 +195,14 @@ $( document ).ready(function() {
 		  left: 0, 
 		  behavior: 'smooth' 
 		});
+    }
+
+    function show_interests(){
+    	return "";
+    }
+
+    function invite_friends(){
+    	return "";
     }
 
     
