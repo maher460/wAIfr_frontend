@@ -66,7 +66,7 @@ $( document ).ready(function() {
     				   ["Logan", "img/logan_pro_pic.jpg"],
     				   ["Matei", "img/matei_pro_pic.jpg"]]
 
-    var telescript = [[WATSON, "Hi Dan, ready to start planning your next trip?", WAIT_FOR_ME_T, null],
+    var telescript = [[WATSON, "Hi Logan, ready to start planning your next trip?", WAIT_FOR_ME_T, null],
     				  [WATSON, "How about we invite some of your other friends to plan a trip together?", WAIT_FOR_ME_T, null],
     				  [WATSON, "Cool, adding them up now!", WAIT_FOR_ME_T, invite_friends],
     				  [FRIEND1, "Heyy, what's poppinng, all? WATSONN!!!! You are so cool, man!", WAIT_FOR_ME_F, null],
@@ -78,8 +78,16 @@ $( document ).ready(function() {
     				  [FRIEND1, "I like fishing", WAIT_FOR_ME_F, null],
     				  [WATSON, "Where are some of your geographic interests?", WAIT_FOR_ME_T, show_interests],
     				  [FRIEND1, "I want to go out west", WAIT_FOR_ME_T, null],
-    				  [FRIEND2, "I'd like to see Europe", WAIT_FOR_ME_T, null],
-    				  [FRIEND3, "I don't want to travel far", WAIT_FOR_ME_F, null]
+    				  [FRIEND2, "I'd like to see Europe", WAIT_FOR_ME_F, null],
+    				  [FRIEND3, "I don't want to travel far", WAIT_FOR_ME_F, null],
+    				  [WATSON, "What is your budget?", WAIT_FOR_ME_T, show_budget],
+    				  [FRIEND1, "I put mine in", WAIT_FOR_ME_F, null],
+    				  [FRIEND2, "All good here too", WAIT_FOR_ME_F, null],
+    				  [FRIEND3, "Sounds good", WAIT_FOR_ME_F, null],
+    				  [WATSON, "When do you want to travel?", WAIT_FOR_ME_T, show_budget],
+    				  [FRIEND1, "We're finished", WAIT_FOR_ME_F, null],
+    				  [WATSON, "Generating packages", WAIT_FOR_ME_F, show_budget],
+    				  [WATSON, "Here's your perfect vacation plan", WAIT_FOR_ME_F, show_budget]
     				  ]
 
     console.log(telescript);
