@@ -90,7 +90,7 @@ $( document ).ready(function() {
     				  [FRIEND2, "All good here too", WAIT_FOR_ME_F, null],
     				  [FRIEND3, "Sounds good", WAIT_FOR_ME_F, null],
     				  [WATSON, "When do you want to travel?", WAIT_FOR_ME_T, show_time],
-    				  [FRIEND1, "We're finished", WAIT_FOR_ME_F, null],
+    				  [FRIEND1, "We're finished", WAIT_FOR_ME_T, null],
     				  [WATSON, "Generating packages", WAIT_FOR_ME_F, null],
     				  [WATSON, "Here's your perfect vacation plan: ", WAIT_FOR_ME_F, show_bundle]
     				  ]
