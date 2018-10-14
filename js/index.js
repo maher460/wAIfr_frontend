@@ -89,10 +89,10 @@ $( document ).ready(function() {
     				  [FRIEND1, "I put mine in", WAIT_FOR_ME_F, null],
     				  [FRIEND2, "All good here too", WAIT_FOR_ME_F, null],
     				  [FRIEND3, "Sounds good", WAIT_FOR_ME_F, null],
-    				  [WATSON, "When do you want to travel?", WAIT_FOR_ME_T, show_budget],
+    				  [WATSON, "When do you want to travel?", WAIT_FOR_ME_T, show_time],
     				  [FRIEND1, "We're finished", WAIT_FOR_ME_F, null],
-    				  [WATSON, "Generating packages", WAIT_FOR_ME_F, show_budget],
-    				  [WATSON, "Here's your perfect vacation plan", WAIT_FOR_ME_F, show_budget]
+    				  [WATSON, "Generating packages", WAIT_FOR_ME_F, null],
+    				  [WATSON, "Here's your perfect vacation plan", WAIT_FOR_ME_F, show_bundle]
     				  ]
 
     console.log(telescript);
@@ -348,6 +348,10 @@ $( document ).ready(function() {
     	var made_live_scroll = make_live_scroll(ls_eles);
     	return made_live_scroll;
     }
+
+    function show_budget(){ return "";}
+    function show_time(){ return "";}
+    function show_bundle(){return "";}
 
     
 
