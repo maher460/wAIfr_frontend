@@ -99,9 +99,9 @@ $( document ).ready(function() {
 		                  <li class="list-group-item">'+ ls_name +'</li>\
 		                  <li class="list-group-item list-group-item-secondary">\
 		                    <ul class="list-inline">\
-		                      <li class="list-inline-item active"><a href="#"><i class="material-icons">thumb_up</i></a></li>\
+		                      <li class="list-inline-item active"><a href=""><i class="material-icons">thumb_up</i></a></li>\
 		                      <li class="list-inline-item active">|</li>\
-		                      <li class="list-inline-item active"><a href="#"><i class="material-icons">thumb_down</i></a></li>\
+		                      <li class="list-inline-item active"><a href=""><i class="material-icons">thumb_down</i></a></li>\
 		                    </ul>\
 		                  </li>\
 		                </ul>\
