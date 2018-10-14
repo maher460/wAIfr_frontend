@@ -270,6 +270,24 @@ $( document ).ready(function() {
 		return ls_ele;
     }
 
+    function make_live_scroll_ele_str(ls_name){
+    	var ls_ele = '<div class="col-4 live__scroll--box">\
+		              <div class="card item_box">\
+		                <ul class="list-group">\
+		                  <li class="list-group-item">'+ ls_name +'</li>\
+		                  <li class="list-group-item list-group-item-secondary">\
+		                    <ul class="list-inline">\
+		                      <li class="list-inline-item active"><a><i class="material-icons thumb">thumb_up</i></a></li>\
+		                      <li class="list-inline-item active">|</li>\
+		                      <li class="list-inline-item active"><a><i class="material-icons thumb">thumb_down</i></a></li>\
+		                    </ul>\
+		                  </li>\
+		                </ul>\
+		              </div>\
+		            </div>'
+		return ls_ele;
+    }
+
     function test1(){
     	var ls_eles = []
     	for(var i=0; i<5; i++){
@@ -349,9 +367,29 @@ $( document ).ready(function() {
     	return made_live_scroll;
     }
 
-    function show_budget(){ return "";}
-    function show_time(){ return "";}
-    function show_bundle(){return "";}
+    function show_budget(){ 
+    	var budgets = ["$500", "$1000", "$1500", "$2000", "$2500", "$3000"]
+    	var ls_eles = []
+    	for(var i=0; i<budgets.length; i++){
+    		ls_eles.push(make_live_scroll_ele_str(budgets[i]));
+    	}
+    	var made_live_scroll = make_live_scroll(ls_eles);
+    	return made_live_scroll;
+    }
+
+    function show_time(){ 
+    	var times = ["5/10-5/21", "6/11-6/23", "9/12-9/24", "12/20-12/27"]
+    	var ls_eles = []
+    	for(var i=0; i<times.length; i++){
+    		ls_eles.push(make_live_scroll_ele_str(times[i]));
+    	}
+    	var made_live_scroll = make_live_scroll(ls_eles);
+    	return made_live_scroll;
+    }
+
+    function show_bundle(){
+    	return "";
+    }
 
     
 
