@@ -92,7 +92,7 @@ $( document ).ready(function() {
     				  [WATSON, "When do you want to travel?", WAIT_FOR_ME_T, show_time],
     				  [FRIEND1, "We're finished", WAIT_FOR_ME_F, null],
     				  [WATSON, "Generating packages", WAIT_FOR_ME_F, null],
-    				  [WATSON, "Here's your perfect vacation plan", WAIT_FOR_ME_F, show_bundle]
+    				  [WATSON, "Here's your perfect vacation plan: ", WAIT_FOR_ME_F, show_bundle]
     				  ]
 
     console.log(telescript);
@@ -388,7 +388,13 @@ $( document ).ready(function() {
     }
 
     function show_bundle(){
-    	return "";
+    	var ele = ""
+    	ele += "<p class='text-center'>Boulder, CO</p>";
+    	ele += "<p class='text-center'>Fishing and Hiking Vacation</p>";
+    	ele += "<p class='text-center'>Budget: $750 per person</p>";
+    	ele += "<p class='text-center'>From July 19th to 25th</p>";
+    	ele += "<p class='text-center'>Have fun!</p>";
+    	return ele;
     }
 
     
