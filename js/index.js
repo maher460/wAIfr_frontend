@@ -57,7 +57,12 @@ $( document ).ready(function() {
 				  ['Cairo', "img/cities/cairo - Edited.jpg"],
 				  ['Cancun', "img/cities/cancun - Edited.jpg"],
 				  ['Guatemalacity', "img/cities/guatemalacity - Edited.jpg"],
-				  ['Hong Kong', "img/cities/hongkong - Edited.jpg"]]
+				  ['Johannesburg', "img/cities/johannesburg - Edited.jpg"],
+				  ['Kansas City', "img/cities/kansascity - Edited.jpg"],
+				  ['Lagos', "img/cities/lagos - Edited.jpg"],
+				  ['Lima', "img/cities/lima - Edited.jpg"],
+				  ['London', "img/cities/london - Edited.jpg"],
+				  ['Los Angeles', "img/cities/losangeles - Edited.jpg"],]
 
 
     var people_info = [["Watson", "img/watson2_pro_pic.png"],
@@ -79,6 +84,10 @@ $( document ).ready(function() {
 
     var telescript_idx = 0;
     function run_telescript(){
+    	if(telescript_idx >= telescript.length){
+    		return;
+    	}
+    	
     	var tele_item = telescript[telescript_idx];
     	console.log(telescript_idx);
     	console.log(tele_item);
@@ -303,11 +312,23 @@ $( document ).ready(function() {
     	return "";
     }
 
+	function get_random_indices(length){
+		console.log(length);
+		var arr = []
+		while(arr.length < 5){
+		    var randomnumber = Math.floor(Math.random()*(length-1));
+		    if(arr.indexOf(randomnumber) > -1 && randomnumber < 0) continue;
+		    arr[arr.length] = randomnumber;
+		}
+		return arr;
+	}
 
     function show_cities(){
+    	var indices = get_random_indices(cities.length);
     	var ls_eles = []
-    	for(var i=0; i<activities.length; i++){
-    		ls_eles.push(make_live_scroll_ele(cities[i][0], cities[i][1]));
+    	for(var i=0; i<indices.length; i++){
+    		var idx = indices[i];
+    		ls_eles.push(make_live_scroll_ele(cities[idx][0], cities[idx][1]));
     	}
     	var made_live_scroll = make_live_scroll(ls_eles);
     	return made_live_scroll;
