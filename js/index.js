@@ -66,9 +66,9 @@ $( document ).ready(function() {
 
 
     var people_info = [["Watson", "img/watson2_pro_pic.png"],
-    				   ["Dan", "img/dan_pro_pic.jpg"],
-    				   ["Maher", "img/maher_pro_pic.jpg"],
     				   ["Logan", "img/logan_pro_pic.jpg"],
+    				   ["Maher", "img/maher_pro_pic.jpg"],
+    				   ["Dan", "img/dan_pro_pic.jpg"],
     				   ["Matei", "img/matei_pro_pic.jpg"]]
 
     var telescript = [[WATSON, "Hi Dan, ready to start planning your next trip?", WAIT_FOR_ME_T, null],
@@ -81,7 +81,7 @@ $( document ).ready(function() {
     				  [FRIEND2, "I want to hike", WAIT_FOR_ME_T, null],
     				  [FRIEND3, "I want nature but still near a city", WAIT_FOR_ME_F, null],
     				  [FRIEND1, "I like fishing", WAIT_FOR_ME_F, null],
-    				  [WATSON, "Where are some of your geographic interests?", WAIT_FOR_ME_T, show_interests],
+    				  [WATSON, "Where are some of your geographic interests?", WAIT_FOR_ME_T, show_cities],
     				  [FRIEND1, "I want to go out west", WAIT_FOR_ME_T, null],
     				  [FRIEND2, "I'd like to see Europe", WAIT_FOR_ME_T, null],
     				  [FRIEND3, "I don't want to travel far", WAIT_FOR_ME_F, null]
@@ -149,7 +149,7 @@ $( document ).ready(function() {
     	if(e.keyCode == 13){
     		var msg = $("#input_msg").val();
 	    	if(msg){
-	    		put_my_message("Maher", "img/maher_pro_pic.jpg", msg);
+	    		put_my_message(people_info[ME][0], people_info[ME][1], msg);
 	    		waiting_for_me = false;
 	    		$("#input_msg").val("");
 	    	}
